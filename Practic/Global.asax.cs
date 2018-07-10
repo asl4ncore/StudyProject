@@ -31,8 +31,6 @@ namespace Practic
 
             CarOrdersDbInitializer db = new CarOrdersDbInitializer();
             Database.SetInitializer(db);
-            //new
-            //new
         }
     }
 }
