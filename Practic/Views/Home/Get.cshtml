@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Practic.Models.RouteType>
+﻿@model IEnumerable<Practic.ViewModel.RouteTypeViewModels>
 
 @{
     ViewBag.Title = "Get";
@@ -10,13 +10,13 @@
     <table class="table">
         <tr>
             <th>Дата поступления</th>
-     
+
         </tr>
         @foreach (var i in Model)
         {
             <tr>
                 <td>@i.Name</td>
- 
+
             </tr>
         }
     </table>

@@ -1,6 +1,6 @@
 ﻿using Practic.Models;
 using System.Data.Entity;
-
+using static Practic.Models.Measure;
 
 namespace Practic.Infrastructure.Data
 {
@@ -14,6 +14,9 @@ namespace Practic.Infrastructure.Data
         public DbSet<RouteType> RouteTypes { get; set; }
         public DbSet<Material> Materials { get; set; }
         public DbSet<Measure> Measures { get; set; }
+        public DbSet<Provider> Providers { get; set; }
+        public DbSet<Machine> Machines { get; set; }
+        
     }
     public class CarOrdersDbInitializer : DropCreateDatabaseIfModelChanges<CarOrdersContext>
     {

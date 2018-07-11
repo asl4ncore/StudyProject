@@ -50,6 +50,7 @@
     <Compile Include="Add.cs" />
     <Compile Include="Determine.cs" />
     <Compile Include="JobType.cs" />
+    <Compile Include="Machine.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Measure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,10 +58,6 @@
     <Compile Include="Route.cs" />
     <Compile Include="RouteType.cs" />
     <Compile Include="Weigh.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,8 +6,6 @@ namespace Practic.Models
     public class Route
     {
         public int Id { get; set; }
-
-        [Required]
         [Display(Name = "Маршрут")]
         public string Name { get; set; }
 

@@ -1,5 +1,7 @@
-﻿using Practic.Infrastructure.Data;
+﻿using AutoMapper;
+using Practic.Infrastructure.Data;
 using Practic.Models;
+using Practic.ViewModel;
 using Practic.Unit;
 using System;
 using System.Collections.Generic;
@@ -24,8 +26,10 @@ namespace Practic.Controllers
         }
         public ActionResult Get()
         {
-           var routeType = unit.RouteTypeRepo.Get();
-           return View(routeType);
+            Mapper.Initialize(cfg => cfg.CreateMap<RouteTypeViewModels, RouteType>());
+            var routeType =
+                Mapper.Map<IQueryable<RouteType>, List<RouteTypeViewModels>>(unit.RouteTypeRepo.Get());
+            return View(routeType);
         }
     }
 }

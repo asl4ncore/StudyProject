@@ -52,10 +52,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Practic.Interfaces\Practic.Interfaces.csproj">
       <Project>{b2f701db-1623-4091-852b-24f0cec5a436}</Project>
       <Name>Practic.Interfaces</Name>
