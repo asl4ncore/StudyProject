@@ -2,6 +2,7 @@
 using Ninject.Modules;
 using Ninject.Web.Mvc;
 using Practic.Infrastructure.Data;
+using Practic.Models;
 using Practic.Util;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace Practic
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<ApplicationDbContext>(new AppDbInitializer());
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

@@ -8,33 +8,56 @@ using Practic.Models;
 
 namespace Practic.Infrastructure.Business
 {
-    public class MeasureMath : IMeasure
+    public static class MeasureMath //: IMeasure
     {
-        public int FirstWeighFull { get; set; }
-        public double FirstWeighPacking { get; set; }
-        public int SecondWeighFull { get; set; }
-        public double SecondWeighPacking { get; set; }
+        public static int FirstWeighFull { get; set; }
+        public static double? FirstWeighPacking { get; set; }
+        public static int FirstId { get; set; }
+        public static int SecondWeighFull { get; set; }
+        public static double? SecondWeighPacking { get; set; }
+        public static int SecondId { get; set; }
 
-        public  void FirstMeasure(Weigh weigh)
+        public static void FirstMeasure(Weigh weigh)
         {
-            this.FirstWeighFull = weigh.WeighFull;
-            this.FirstWeighPacking = weigh.WeighPacking;
-
+            if (weigh.WeighPacking == null)
+            {
+                weigh.WeighPacking = 0;
+            }
+            MeasureMath.FirstWeighPacking = weigh.WeighPacking;
+            MeasureMath.FirstWeighFull = weigh.WeighFull;
+            MeasureMath.FirstId = weigh.OrderId;
         }
 
-        public void SecondMeasure(Weigh weigh)
+        public static void SecondMeasure(Weigh weigh)
         {
-            this.SecondWeighFull = weigh.WeighFull;
-            this.SecondWeighPacking = weigh.WeighPacking;
+            if (weigh.WeighPacking == null)
+            {
+                weigh.WeighPacking = 0;
+            }
+            MeasureMath.SecondWeighPacking = weigh.WeighPacking;
+            MeasureMath.SecondWeighFull = weigh.WeighFull;
+            MeasureMath.SecondId = weigh.OrderId;
         }
-        public void SelectMeasure(Weigh weigh)
+        public static void SelectMeasure(Weigh weigh)
         {
-           if (weigh.WeighDetermine==true) { SecondMeasure(weigh); }
-            if (weigh.WeighDetermine == false) { FirstMeasure(weigh); }
+            if (weigh.WeighDetermine == false)
+            {
+                MeasureMath.SecondMeasure(weigh);
+            }
+             if (weigh.WeighDetermine == true)
+            {
+                MeasureMath.FirstMeasure(weigh);
+            }
+            Total(weigh);
         }
-        public void Total(Weigh weigh)
+        public static void  Total(Weigh weigh)
         {
-            weigh.WeighMaterial = this.SecondWeighFull-this.SecondWeighPacking-this.FirstWeighFull-this.FirstWeighPacking;
+            if (MeasureMath.FirstId== MeasureMath.SecondId)
+            {
+                weigh.WeighMaterial = MeasureMath.SecondWeighFull - MeasureMath.SecondWeighPacking - MeasureMath.FirstWeighFull - MeasureMath.FirstWeighPacking;
+            } 
         }
+
+
     }
 }

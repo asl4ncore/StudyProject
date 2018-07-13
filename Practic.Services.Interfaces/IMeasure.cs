@@ -11,6 +11,6 @@ namespace Practic.Interfaces
     {
         void FirstMeasure(Weigh weigh);
         void SecondMeasure(Weigh weigh);
-        void Total(Weigh weigh);
+        double? Total(Weigh weigh);
     }
 }

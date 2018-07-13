@@ -26,7 +26,9 @@ namespace Practic.Controllers
         }
         public ActionResult Get()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<RouteTypeViewModels, RouteType>());
+            Mapper.Initialize(cfg => cfg.CreateMap<RouteTypeViewModels, RouteType>().ReverseMap());
+
+
             var routeType =
                 Mapper.Map<IQueryable<RouteType>, List<RouteTypeViewModels>>(unit.RouteTypeRepo.Get());
             return View(routeType);
