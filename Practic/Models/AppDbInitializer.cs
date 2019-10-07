@@ -41,31 +41,6 @@ namespace Practic.Models
             string password4 = "Qwerty2020";
             var result4 = userManager.Create(user4, password4);
 
-            // если создание пользователя прошло успешно
-            if (result.Succeeded)
-            {
-                // добавляем для пользователя роль
-                userManager.AddToRole(admin.Id, admin.Name);
-                userManager.AddToRole(admin.Id, user.Name);
-            }
-            if (result2.Succeeded)
-            {
-                // добавляем для пользователя роль
-                userManager.AddToRole(user_user.Id, controller.Name);
-                userManager.AddToRole(user_user.Id, user.Name);
-            }
-            if (result3.Succeeded)
-            {
-                // добавляем для пользователя роль
-                userManager.AddToRole(user3.Id, master.Name);
-                userManager.AddToRole(user3.Id, user.Name);
-            }
-            if (result4.Succeeded)
-            {
-                // добавляем для пользователя роль
-                userManager.AddToRole(user4.Id, user.Name);
-            }
-
             base.Seed(context);
         }
     }

@@ -26,7 +26,11 @@ namespace Practic.Controllers
             var weighs = unit.WeighRepo.Get();
             return View(weighs);
         }
-
+        public ActionResult New()
+        {
+           
+            return View();
+        }
         // GET: Weighs/Details/5
         public ActionResult Details(int? id)
         {

@@ -8,7 +8,7 @@ using Practic.Models;
 
 namespace Practic.Infrastructure.Business
 {
-    public static class MeasureMath //: IMeasure
+    public static class MeasureMath
     {
         public static int FirstWeighFull { get; set; }
         public static double? FirstWeighPacking { get; set; }
